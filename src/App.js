@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ButtonData from './Components/ButtonData';
+import TableData from './Components/TableData';
+
+const Data = [{
+  name: "Yash Kamdi",
+  mail: "yash123@gamil.com"
+},
+{
+  name: "Yash Singh",
+  mail: "singh123@gamil.com"
+},
+{
+  name: "Yash Sharma",
+  mail: "sharma123@gamil.com"
+}
+]
 
 function App() {
+  const [data, setData] = useState(Data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ButtonData data={data} setData={setData} />
+      <TableData data={data} />
     </div>
   );
 }
